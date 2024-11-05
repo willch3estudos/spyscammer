@@ -21,4 +21,4 @@ RUN poetry install
 FROM base AS release
 ENV LOG_LEVEL=INFO
 
-CMD ["python", "./app/__main__.py"]
+CMD ["python", "__main__.py"]
