@@ -21,4 +21,4 @@ RUN poetry install
 FROM base AS release
 ENV LOG_LEVEL=INFO
 
-CMD ["python", "__main__.py"]
+CMD ["uvicorn", "app.__main__:app", "--host", "0.0.0.0", "--port", "${PORT}"]
