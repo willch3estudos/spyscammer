@@ -1,4 +1,4 @@
-FROM python:3.10 AS base
+FROM python:3.10-slim AS base
 
 WORKDIR /app
 
@@ -18,7 +18,7 @@ RUN apt update && apt upgrade -y && apt install git make zsh curl vim ssh -y
 RUN poetry install
 
 # For Deployment
-FROM base as release
+FROM base AS release
 ENV LOG_LEVEL=INFO
 
-CMD python ./app/__main__.py
+CMD ["python", "./app/__main__.py"]
